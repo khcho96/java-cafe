@@ -19,16 +19,18 @@ public class CafeService {
     }
 
     public ResultDto computeResult(List<String> orderMenus, int orderNumber) {
-        Order order = Order.from(orderMenus, orderNumber + 1);
+        Order order = Order.from(orderMenus, orderNumber);
         orders.addOrder(order);
 
         Barista workableBarista = getworkableBarista(baristaA, baristaB);
         Barista unworkableBarista = getunworkableBarista(workableBarista, baristaA, baristaB);
 
+        int cumulativeWaitingTime = workableBarista.getTotalWorkTime();
+        order.addWaitingTime(cumulativeWaitingTime);
+
         int worktime = workableBarista.getWorkTime();
         workableBarista.doWork(order);
         unworkableBarista.updateWorkTime(worktime);
-        order.addWaitingTime(worktime);
 
         return ResultDto.of(orders, baristaA, baristaB);
     }

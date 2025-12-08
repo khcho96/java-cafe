@@ -3,12 +3,12 @@ package cafe.constant;
 public enum Menu {
 
     AMERICANO("coffee", "아메리카노", 4000, 2),
-    CAFE_LATTE("coffee", "카페라테", 4500, 3),
-    BANILLA_LATTE("coffee", "바닐라라테", 5000, 3),
+    CAFE_LATTE("coffee", "카페라떼", 4500, 3),
+    BANILLA_LATTE("coffee", "바닐라라떼", 5000, 3),
     COLD_BREW("coffee", "콜드브루", 4500, 2),
 
-    CHOCO_LATTE("non coffee", "초코라테", 5000, 3),
-    MATCHA_LATTE("non coffee", "녹차라테", 5000, 3),
+    CHOCO_LATTE("non coffee", "초코라떼", 5000, 3),
+    MATCHA_LATTE("non coffee", "녹차라떼", 5000, 3),
     HUB_TEA("non coffee", "허브티", 4000, 2),
 
     CHEESE_CAKE("dessert", "치즈케이크", 5500, 0),

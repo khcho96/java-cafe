@@ -5,8 +5,8 @@ import static cafe.constant.ErrorMessage.ORDER_ERROR;
 
 public final class Validator {
 
-    private static final String CSV_FORMAT = "^ *(\\S+-\\d+)+ *(, *(\\S+-\\d+)+ *)*$";
-    private static final String NUMBER_FORMAT = "\\d";
+    private static final String CSV_FORMAT = "^ *([가-힣]+-\\d+)+ *(, *([가-힣]+-\\d+)+ *)*$";
+    private static final String NUMBER_FORMAT = "\\d+";
     private static final int CUSTOMER_MIN = 1;
     private static final int CUSTOMER_MAX = 20;
 

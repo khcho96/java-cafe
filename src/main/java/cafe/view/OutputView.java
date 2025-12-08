@@ -20,7 +20,9 @@ public class OutputView {
             + " - 주문 완료 시각: %d분\n\n";
     private static final String BARISTA_RESULT_MESSAGE = "<직원별 작업 시간>";
     private static final String BARISTA_TIME = "직원 %s 총 작업 시간: %d분\n";
-    private static final String MOST_WORK_BARISTA = "가장 많이 일한 직원: 직원 %s\n\n";
+    private static final String MOST_WORK_BARISTA = "가장 많이 일한 직원: ";
+    private static final String BARISTA_NAME = "직원 %s\n\n";
+    private static final String DRAW = "동일\n";
     private static final String TIME_STATUS_MESSAGE = "<대기 시간 통계>";
     private static final String MOST_WAITING_CUSTOMER = "가장 오래 기다린 손님 번호: %d번\n"
             + "가장 오래 기다린 손님의 대기 시간: %d분\n"
@@ -29,7 +31,6 @@ public class OutputView {
     private static final String PROFIT_RESULT = "총 매출: %,d원\n"
             + "음료 매출: %,d원\n"
             + "디저트 매출: %,d원\n";
-    private static final String DRAW = "동일";
 
 
     public static void print(ResultDto resultDto) {
@@ -66,9 +67,10 @@ public class OutputView {
         System.out.printf(BARISTA_TIME, baristaB.getName(), totalWorkTimeB);
         String mostWorkBaristaName = baristaA.mostWorkBarista(baristaB);
         if (mostWorkBaristaName == null) {
-            mostWorkBaristaName = DRAW;
+            System.out.println(MOST_WORK_BARISTA + DRAW);
+            return;
         }
-        System.out.printf(MOST_WORK_BARISTA, mostWorkBaristaName);
+        System.out.printf(MOST_WORK_BARISTA + BARISTA_NAME, mostWorkBaristaName);
     }
 
     private static void printCustomerResult(Orders orders) {
